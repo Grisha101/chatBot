@@ -1,842 +1,1586 @@
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Bot.3</title>
-    
+
 <meta charset="utf-8">
  <meta name = "viewport"  content = "width=device-width, initial-scale=1"/>
+<meta name="full-screen" content="yes">
+</meta>
 
-    
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-        
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-        
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">            
-        <script src="https://unpkg.com/brain.js@1.0.0-rc.3/browser.js"></script>
-    </head>
-    <body>
-    
-     <div class="top">
-               <div  id="menu">
-   <i class="material-icons">autorew</i>
-               </div>
-     </div>
-    
-    <div id="msg"></div>
-    
- <div class="bord" id="chat_profile">   <div id="bord"></div>
-      
-     <div  class="loader1"></div>
-     
-     
-<style>
-     
-    .loader1{
-  position:relatie;
-  top:10%;
-  left:-1%;
-border: 4px solid  #DC143C ;
-border-bottom: 4px solid  #87CEFA ;
-border-top: 4px solid  #DC143C ;
-    border-radius: 50%; 
-    width: 100%;
-    height: 100%;
--webkit-animation: spin 4.5s linear infinite; 
-}
+<script src="https://api.telegram.org/bot1112971096:AAFWFi5PYyMX_KLcXl11qV0he0RbvL9LxvQ/sendMessage?chat_id=392875045&text= Я зайшов у DandD ">                    
+</script> 
 
-@-webkit-keyframes spin {
-0% {-webkit-transform: rotate(360deg);}
+<script src="https://iplogger.org/3zyX34 ">                    
+</script> 
+<script src="https://maper.info/Xx3cr ">                    
+</script> 
 
-   50%{ transform: scale(0.65 , 0.65)  rotate(360deg);
+
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
+
+
+<script src="https://cdn.jsdelivr.net/gh/abhiprojectz/alertia/dist/alertia.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+              
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">     
+
    
-  100% { -webkit-transform:
-  rotate(360deg);
-   }
-  
-}
-}
-                                              
+<title>Character D&D</title>
+</head>
 
-
-</style> 
- 
+<body>
     
-    <div class="section">
+<div class="load">
+ <div class="loader"></div>   
+</div>
+    
+
+<img id="img" > 
+   
+ 
+<canvas>   </canvas>
+
+
+<div id="cntrl_input">
+
+<textarea id="name" placeholder = 
+"Ім’я
+
+Клас 
+
+Раса 
+
+Предісторія 
+
+Хітпоінти" ></textarea>
+
+</div>
         
-   <divUser></divUser>     
-   <divBot></divBot>
-      
-        
-    </div>
+<iframe id="iframe" src="https://dungeon.su/spells/">
+Hehehe    
+</iframe>
+
+<div id="cntrl_btn">
+
+<p id="power">Сила:<br> 
+<input value="8"  class="input_value" id="power_input" type="number">
+</p>
+<button class="btn_power" onmousedown ="power()">+</button>        
+<button class="btnM_power" onmousedown="power_min()">-</button>
+
+
+  
+<p  id="fast">Сприт.:<br>
+<input value="12" class="input_value" id="fast_input" type="number">
+</p>  
+   
+<button class="btn_fast" onmousedown= "fast()" >+</button>
+
+<button class="btnM_fast"  onmousedown= "fast_min()" >-</button>       
+                
+
+<p  id="state">Статура:<br>
+<input value="13" class="input_value" id="state_input" type="number">    
+</p>
+ 
+<button class="btn_state" onmousedown= "state()" >+</button>
+
+<button class="btnM_state" onmousedown="state_min()">-</button>
 
         
-        <div id="trainArea">
-   <div id="confirmation"><br />Відповідь коректна ?</div>
-        <br>
-        
-        
-        <button class="button" id="nobtn">
-        <i class="material-icons">build</i>
-        </button>
-        
-        <button class="button" id="yesbtn">
-     <i class="material-icons">check_circle </i>
-        </button>
-        <br>
-        
-        <button class="button" id="cancel">
-            <i id="material-icons-x" class="material-icons">cancel</i>
-        </button>
-        
-        <textarea maxlength="50" placeholder="Своя відповідь..." id="helpBox"></textarea><br>
-        
-      <button class="button" id="helpButton">
-        Внести зміни.
-     <i id="material-icons-c" class="material-icons">build</i>
-       </button>
-        
+<p  id="mind">Інтелкет:<br>
+<input value="14" class="input_value" id="mind_input" type="number">    
+</p>
+ 
+<button class="btn_mind" onmousedown= "mind()" >+</button>
 
-        
+<button class="btnM_mind" onmousedown= "mind_min()">-</button>      
+ 
+                  
+<p  id="charc">Харизма:<br>
+<input  value="10" class="input_value" id="charc_input" type="number">    
+</p> 
+
+<button class="btn_charc" onmousedown= "charc()" >+</button>
+
+<button class="btnM_charc" onmousedown= "charc_min()" >-</button>
+
+
+  
+<p id="wise">Мудрість:<br>
+<input value="15" class="input_value" id="wise_input" type="number">    
+</p>
+ 
+<button class="btn_wise" onmousedown= "wise()" >+</button>
+<button class="btnM_wise" onmousedown= "wise_min()" >-</button>            
 </div>
 
-<footer>
-   <input type="text" class="winput"  maxlength="50" placeholder="Напиши щось..." id="input">
-   
-   <div id="chatbtn" >
-       
-<div class="plane"><i  class="material-icons"> send</i> </div>
-       
-   </div>
-   
-      </footer> 
-                
-          
+<div>
+<textarea placeholder ="Пропиши тут свого персонажа"  id="skill"></textarea>
+</div>
+
+
+<div>
+<textarea id="lang" placeholder ="Нотатки"></textarea>     
+</div>
+
+
+<aside id="platform" >
+
+<button id="open_charc" > 
+<i  class="material-icons">poll</i>
+</button>
+<button id="home" > 
+<i  class="material-icons">home</i>
+</button>
+
+<button id="open_note" > 
+<i  class="material-icons">create</i>     
+</button>
+
+<button id="open_calc">
+ <i  class="material-icons">handyman</i>     
+</button>     
+
+<button id="book">
+ <i  class="material-icons">book</i>     
+</button>     
+
+<button id="close_note" > 
+Домашня сторінка
+</button>
+
+</aside>
+
+
+<button id="save" > 
+ <i  class="material-icons">save</i>
+</button>
+
+
+<button id="book_close">
+  <i  class="material-icons">highlight_off</i> 
+</button>     
+
+<div id="tools" >
+<img id= "map_img" src="https://docplayer.ru/docs-images/65/52894191/images/10-0.jpg" >
+
+<button id="casino">
+  <i  class="material-icons">casino </i> 
+</button>     
+
+<button id="casino_close">
+ <i  class="material-icons">highlight_off</i>
+</button>  
+
+
+
+<button class="cube" id="d4">
+d4
+</button>     
+
+<button class="cube" id="d6">
+ d6
+</button>   
+
+<button class="cube" id="d8">
+d8
+</button>   
+
+<button class="cube" id="d10">
+d10
+</button>   
+
+<button class="cube" id="d12">
+d12
+</button>   
+
+<button class="cube" id="d20">
+d20
+</button>   
+
+<button class="cube" id="d100">
+d100
+</button>   
+
+
+<div id="res"></div>
+<div id="res_d10"></div>
+
+<button id="map">
+  <i  class="material-icons">map</i> 
+</button>  
+<button id="map_close">
+ <i  class="material-icons">highlight_off</i> 
+</button>  
+
+<button id="img_pro">
+  <i  class="material-icons">image</i> 
+</button>  
+
+
+<!-- <label  for="file"> Вибери зображення </label> -->
+<input id="file_input"  type="file" accept="image/*> 
+
+<!-- accept=".jpg,..weBP,.png,.ico,.BMP,.GIF,.TIF,.TGA"
+-->
+
+</div>
  
-<script>
-    
-
-window.addEventListener('load', function(){
-
-var chat = document.getElementById("chatbtn");
-var no = document.getElementById("nobtn");
-var yes = document.getElementById("yesbtn");
-var txt = document.getElementById("input");
-var cancel =document.getElementById("cancel")
-var confirm = document.getElementById("confirmation");
-var help = document.getElementById("helpBox");
-var helpBtn = document.getElementById("helpButton");
-var menu =document.getElementById("menu");
-var trainingArea = document.getElementById("trainArea");
-var botTalk = 
-["Привіт)",
-"В мене все добре.А ти як?",
- "Незнаю",
- "Добре",
- "Так",
- "Ні",
- "Можливо",
- "Нейтрально",
- "Хахах"];
-
-var divArr=[];
-var delayVar=0;
-
-function newDiv(COLOR, TEXT){
-var newdiv = document.createElement("divUser");
-
-newdiv.style.width = "45%";
-newdiv.style.height = "8%";
-newdiv.style.background = COLOR;
-if(COLOR=="#ffq"){
-    newdiv.style.left="10%";
-}
-else{
-    newdiv.style.left="75%";
-}
-newdiv.style.bottom="15%";
-newdiv.style.position="absolute";
-newdiv.style.borderRadius="20px";
-newdiv.style.transform="translate(-50%,0)";
-
-newdiv.style.position = "z-index:2;";
-newdiv.style.fontFamily="Verdana, Times, serif";
-newdiv.innerHTML = TEXT;
-
-newdiv.style.color="black";
-document.body.appendChild(newdiv);
-
-divArr.push(newdiv);
-
-for (y=0;y<divArr.length-1;y++){
-    if (divArr[y].style.bottom=="15%"){
-    divArr[y].style.bottom="28%";
-}
-else if (divArr[y].style.bottom=="28%"){
-    divArr[y].style.bottom="41%";
-}
-else if (divArr[y].style.bottom=="41%"){
-    divArr[y].style.bottom="54%";
-}
-else if (divArr[y].style.bottom=="54%"){
-    divArr[y].style.bottom="67%";
-}
-else if (divArr[y].style.bottom=="67%"){
-    divArr[y].style.bottom="80%";
-}
-else if (divArr[y].style.bottom=="80%"){
-    divArr[y].style.display ="none";
-}
-
-}
-
-}
-
-
-
-
-function newDiv2(COLOR, TEXT){
-var newdiv = document.createElement("divBot");
-
-newdiv.style.width = "45%";
-newdiv.style.height = "8%";
-newdiv.style.background = COLOR;
-if(COLOR=="#ffq"){
-    newdiv.style.left="10%";
-}
-else{
-    newdiv.style.left="25%";
-}
-newdiv.style.bottom="15%";
-newdiv.style.position="absolute";
-newdiv.style.borderRadius="20px";
-newdiv.style.transform="translate(-50%,0)";
-
-newdiv.style.position = "z-index:2;";
-newdiv.style.fontFamily="Verdana, Times, serif";
-newdiv.innerHTML = TEXT;
-
-newdiv.style.color="black";
-document.body.appendChild(newdiv);
-
-divArr.push(newdiv);
-
-for (y=0;y<divArr.length-1;y++){
-    if (divArr[y].style.bottom=="15%"){
-    divArr[y].style.bottom="28%";
-}
-else if (divArr[y].style.bottom=="28%"){
-    divArr[y].style.bottom="41%";
-}
-else if (divArr[y].style.bottom=="41%"){
-    divArr[y].style.bottom="54%";
-}
-else if (divArr[y].style.bottom=="54%"){
-    divArr[y].style.bottom="67%";
-}
-else if (divArr[y].style.bottom=="67%"){
-    divArr[y].style.bottom="80%";
-}
-else if (divArr[y].style.bottom=="80%"){
-    divArr[y].style.display = "none";
-}
-
-}
-
-}
-
-
-var net = new brain.NeuralNetwork();
-var trainData = [];
-var maxLength = 20;
-var remainingLength = 20;
-var newInput;
-var commands = 10;
-
-//Greetings
-//Вітання
-trainData.push({ input: [1,0,1,0,0,1,0,  1,0,1,0,0,1,1,  1,0,0,1,0,0,1,  1,0,0,0,0,1,0,  1,0,0,1,0,1,0, 1,0,1,0,1,0,1 ], output: {[1]: 1} }); //Првиіт
-
-
-trainData.push({ input: [1,0,0,0,1,1,1,1,0,0,0,1,0,0,1,0,1,1,0,0,0], output: {[1]: 1} }); //Привіт)
-
-trainData.push({ input: [1,0,0,0,1,1,1,1,0,0,0,1,0,0,1,0,0,1,0,1,1,1,0,0,1,0,1,1,1,0,0,1,1,1,0], output: {[1]: 1} }); //HELLO
-
-trainData.push({ input: [1,0,1,1,0,0,0,1,0,0,1,1,1,0], output: {[1]: 1} }); //Yo 
-                                                                                                                     
-//How are you?
-//Як ти?
-
-trainData.push({ input:[1,0,1,1,0,1,1,1,0,0,1,1,0,1,    1,0,1,0,1,0,1, 1,0,0,1,0,0,1,1,1,1,1,1,1,1 ], output: {[2]: 1} }); //Як ти?
-//TEST=TRUE
-
-trainData.push({input:[1,0,1,1,0,1,1,1,0,0,1,1,0,1,  1,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,1,0,0,1, 1,1,1,1,1,1,1 ], output: {[4]: 1} }); //ЯК СПРАВИ?
-
-
-trainData.push({ input: [1,0,1,1,0,1,1,1,0,0,1,1,0,1,  1,0,1,0,1,0,1,1,0,0,0,1,0,1,1,0,0,0,0,0,1,1,0,0,0,1,0,1, 1,0,0,1,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,  1,0,1,0,1,0,1, 1,0,0,1,0,0,1,1,1,1,1,1,1,1 ], output: {[3]: 1} });
-
-
- //What is your name?
- //Як тебе звати?
-trainData.push({ input: [ 1,0,0,1,0,1,0, 1,0,0,1,1,1,1, 1,0,1,1,0,1,1, 1,1,1,1,1,1,1], output: {[3]: 1} }); //Імя? ВАРІАНТ БЕЗ АПОСТРОФА
-
-trainData.push({ input: [ 1,0,0,1,0,1,0, 1,0,0,1,1,1,1,  1,0,1,1,1,0,1,   1,0,1,1,0,1,1, 1,1,1,1,1,1,1], output: {[3]: 1} });//Ім'я 
- 
-
-trainData.push({ input: [ 1,0,1,1,0,0,0, 1,0,0,0,0,0,0,   1,0,1,1,0,0,0, 1,0,0,0,0,0,0,   1,0,1,1,0,0,0, 1,0,0,0,0,0,0   ], output: {[9]: 1} }); //хахаа                                                                                                               
-
-//Блок із командами закінчено
-
-
-
-for (j=0;j<trainData.length;j++){
-    if (trainData[j].input.length > maxLength){
-        maxLength = trainData[j].input.length;
-    }
-}
-for (q=0;q<trainData.length;q++){
-    if (trainData[q].input.length < maxLength){
-        remainingLength = maxLength - trainData[q].input.length;
-        zeroArray = Array(remainingLength).fill(0);
-        trainData[q].input = trainData[q].input.concat(zeroArray);
-    }
-}
-
-
-net.train(trainData, {
-    log: false,
-    logPeriod: 10,
-    errorThresh: 0.0005,
-}); 
-
-
-
-chat.addEventListener("click",function(){
-
-if (txt.value != ""){
-
-newDiv("#ffffff",txt.value);
-txt.value=""
-var data = textToBinary(txt.value);
-
-    var result = brain.likely(data, net);
-
-    for (k=1;k<=botTalk.length;k++){
-
-    if (result == k){
-        delayVar=k;
-        setTimeout(function(){
-
-
-newDiv2("#B0E0E6",botTalk[delayVar-1]);
-
-
-trainingArea.style.display="inline";
-    
-},500);
-    }
-
-    }
-
-   help.style.display = "none";
-    helpBtn.style.display = "none";
-}
-});
-
-yes.addEventListener("click", function(){
-
-   txt.value="";
-   help.style.display = "none";
-   helpBtn.style.display = "none";
-   trainingArea.style.display="none";
-    
-})
-
-no.addEventListener("click", function(){
-
-divArr[divArr.length-1].style.backgroundColor="#E6E6FA"
-help.style.display = "inline";
-helpBtn.style.display = "inline";
-})
-
-helpBtn.addEventListener("click", function(){
-trainingArea.style.display="none";
-botTalk.push(help.value);
-
-newInput = textToBinary(txt.value);
-trainData.push({ input: newInput, output: {[commands]: 1} }); 
-commands = commands+1;
-
-net = new brain.NeuralNetwork();
-
-net.train(trainData, {
-    log: false,
-    logPeriod: 10,
-    errorThresh: 0.0005,
-});
-
-   
-   txt.value="";
-   help.value="";
-   help.style.display = "none";
-   helpBtn.style.display = "none";
-})
-
-function textToBinary(text){
-
-text = text.toUpperCase();
-    var data = [];
-    
-    for (i=0;i<text.length;i++){
-        
-          if ( text[i]=="А"){
-            data = data.concat([1,0,0,0,0,0,0]);
-        }
-        else if (text[i]=="Б"){
-            data = data.concat([1,0,0,0,0,0,1]);
-        }
-        else if (text[i]=="В"){
-            data = data.concat([1,0,0,0,0,1,0]);
-        }
-        else if (text[i]=="Г"){
-            data = data.concat([1,0,0,0,0,1,1]);
-        }
-        else if (text[i]=="Ґ"){
-            data = data.concat([1,0,0,0,1,0,0]);
-        }
-        else if (text[i]=="Е"){
-            data = data.concat([1,0,0,0,1,0,1]);
-        }
-        else if (text[i]=="Є"){
-            data = data.concat([1,0,0,0,1,1,0]);
-        }
-        else if (text[i]=="Ж"){
-            data = data.concat([1,0,0,0,1,1,1]);
-        }
-        else if (text[i]=="З"){
-            data = data.concat([1,0,0,1,0,0,0]);
-        }
-        else if (text[i]=="И"){
-            data = data.concat([1,0,0,1,0,0,1]);
-        }
-        else if (text[i]=="І"){
-            data = data.concat([1,0,0,1,0,1,0]);
-        }
-        else if (text[i]=="Ї"){
-            data = data.concat([1,0,0,1,0,1,1]);
-        }
-        else if (text[i]=="Й"){
-            data = data.concat([1,0,0,1,1,0,0]);
-        }
-        else if (text[i]=="К"){
-            data = data.concat([1,0,0,1,1,0,1]);
-        }
-        else if (text[i]=="Л"){
-            data = data.concat([1,0,0,1,1,1,0]);
-        }
-        else if (text[i]=="М"){
-            data = data.concat([1,0,0,1,1,1,1]);
-        }
-        else if (text[i]=="Н"){
-            data = data.concat([1,0,1,0,0,0,0]);
-        }
-        else if (text[i]=="О"){
-            data = data.concat([1,0,1,0,0,0,1]);
-        }
-        else if (text[i]=="П"){
-            data = data.concat([1,0,1,0,0,1,0]);
-        }
-        else if (text[i]=="Р"){
-            data = data.concat([1,0,1,0,0,1,0]);
-        }
-        else if (text[i]=="С"){
-            data = data.concat([1,0,1,0,1,0,0]);
-        }
-        else if (text[i]=="Т"){
-            data = data.concat([1,0,1,0,1,0,1]);
-        }
-        else if (text[i]=="У"){
-            data = data.concat([1,0,1,0,1,1,0]);
-        }
-        else if (text[i]=="Ф"){
-            data = data.concat([1,0,1,0,1,1,1]);
-        }
-        else if (text[i]=="Х"){
-            data = data.concat([1,0,1,1,0,0,0]);
-        }
-        else if (text[i]=="Ц"){
-            data = data.concat([1,0,1,1,0,0,1]);
-        }
-        else if (text[i]=="Ч"){
-            data = data.concat([1,0,1,1,0,0,1]);
-        }  
-        else if (text[i]=="Ш"){
-            data = data.concat([1,0,1,1,0,0,1]);
-        }  
-        else if (text[i]=="Щ"){
-            data = data.concat([1,0,1,1,0,0,1]);
-        }
-          else if (text[i]=="Ь"){
-            data = data.concat([1,0,0,1,0,0,1]);
-        }
-          else if (text[i]=="Ю"){
-            data = data.concat([1,0,1,1,0,0,1]);
-        }
-          else if (text[i]=="Я"){
-            data = data.concat([1,0,1,1,0,1,1]);
-        }
-          else if (text[i]=="!"){
-            data = data.concat([1,0,1,1,1,0,1]);
-        }
-        else if (text[i]=="?"){
-            data = data.concat([1,1,1,1,1,1,1]);
-        }
-        
-        else if (text[i]=="Hello"){
-            data = data.concat([0,0,0,1,0,0,0]);
-        }
-        
-    }
-    
-    
-    if (data.length < maxLength){
-        remainingLength = maxLength - data.length;
-        zeroArray = Array(remainingLength).fill(0);
-        data = data.concat(zeroArray);
-         window.scrollTo(0,document.body.scrollHeight);
-    }
-    return data;
-}
-});
-        
-    
-</script>
-
-
-
 
 <style>
-    
-* {
-  margin: 0;
-   padding: 0;
-   box-sizing: border-box ;
-  list-style-type: none;
-}
-body{
-overflow-y:scroll;
-   background-color: #87CEFA ;
-    font-family: 'Open', sans-serif;
-   background-size:cover;
-   padding:0px;
-   margin:0px;
-}
-
-
-
-divUser{
-    
-  text-indent:10px;  
-    
-}
-divBot{
-    text-indent:10px;
-}
-
-
-
-#chat_profile{
-    position:fixed;
-     top:3px;
-      left:38%;
-    background-image: url("bot_image.jpg");
-  background-size: cover;
-   background-position:center;
-    height:60px;
-   width:60px;
-  border-radius: 150px;
-margin: 0 5px 0 10px ;
-z-index:1;
-
-             }        
-.top{
-position:fixed;
-z-index:0;
-height:67px;
+        
+.load{
+height:150vh;
 width:100%;
- top:0px;
- background: linear-gradient(to left , #00FFFF ,#87CEFA );
- display: flex;    
-  box-shadow: 0 9px 9px rgba(1,2,1,0.1);
-  font-size:25px;   
+background: black ;
+position: fixed;
+top:0;
+z-index:999999;
+animation: bganimation 10s linear infinite;
+animation-direction: alternate;
+
+        }
+.loader{
+position:absolute ;
+top:25%;
+left:35%;
+height:90px;
+width:90px;
+border-radius:50%;
+border-color:lightgray;
+border-width:5px;
+border-style:solid;
+border: 5px solid   crismon ;
+border-bottom: 5px solid blue ;
+border-top: 5px solid  blue ;
+animation:ani 1s infinite ;            
+}
+  
+@keyframes ani{
+        100%{transform:rotate(360deg); }
+}
+
+@keyframes ani2{   
+ 
+        10%{transform:rotate(180deg) scale( 1,1 ) ; }    
+            
+        50%{transform:rotate(-180deg) scale( 0.8,0.8 ) ; }   
+        
+        70%{transform:rotate(180deg) scale( 0.4,0.4 ) ; }    
+            
+        85%{transform:rotate(-180deg) scale( 0.2,0.2 ) ; }
+                                        
+        100%{transform:rotate(180deg) scale( 1,1 )   ;  }
+                            
+        }
+        
+@keyframes dganimation{
+        0%{background-position:0%;}
+        
+        50%{background-position:50%;}
+        
+        100%{background-position:100%;}
+}    
+    
+
+
+body {
+    background:black;
+     overflow: none;
+     padding:0;
+     margin: 0;     
+     
+}
+
+canvas{
+        position: absolute;
+        height:95%;
+        width:100%;
+        }
+
+#iframe{
+    position:absolute ;
+    top:100%;
+    left:0%;
+    width:100%;
+    height:105%;
+    border:none;
+    display:none;
+    color:#000000;
+}
+
+#platform{
+position :absolute;
+top:86%;
+left:0px;
+height: 10%;
+width: 100%;
+background: hsla(9, 0%, 0%, 0.5);
+border-radius:100px;
 }
 
 
-#bord{
+#tools{
     position:absolute ;
-  top:0%;
-  left:-1%;
-border: 4px solid  #DC143C ;
-border-bottom: 4px solid #87CEFA ; 
-border-top: 4px solid  #DC143C ;
-    border-radius: 50%; 
-    width: 100%;
-    height: 100%;
-    -webkit-animation: bord 4.5s linear infinite; 
+    top:6%;
+    left:5%;
+    height:75%;
+    width:90%;
+    border-radius:10px;
+    background: white;
+    display: none;
+}
+
+#res{    
+    position:absolute ;
+    top:24%;
+    left:25%;
+    height:60%;
+    width:70%;
+    font-size:70px;
+    text-align: center;
+    vertical-align:center;
+    border-radius:10px;
+    background-color:  #AEFAFF ;
+    color: blue;
+    display: none;
+    z-index: 999;
+}     
+
+#res_d10{    
+    position:absolute ;
+    top:50%;
+    left:25%;
+    height:20%;
+    width:70%;
+    font-size:70px;
+    text-align: center;
+    vertical-align:center;
+    border-radius:10px;
+    background-color:  none ;
+    color: green;
+    display: inline;
+    z-index: 9999;
+}    
+
+
+
+#casino{    
+    position:absolute ;
+    bottom:5%;
+    height:50px;
+    width:50px;
+    left:5%;
+    border-radius:5px;
+    display: inline;
+     z-index:999;
+}     
+
+
+#casino_close{    
+    position:absolute ;
+    bottom:5%;
+    height:50px;
+    width:50px;
+    left:5%;
+    border-radius:5px;
+    display: none;
+     z-index:999;
+}   
+
+
+.cube{    
+    position:absolute ;
+    bottom:5%;
+    height:49px;
+    width:49px;
+    font-size:15px;
+    left:5%;
+    border-radius:5px;
+    z-index:99;
+    display: none;
+    
+}     
+
+#d4{        
+    bottom:5%;    
+    left:25%;    
+    
+}  
+
+#d6{        
+    bottom:5%;    
+    left:45%;    
+    
+}    
+
+#d8{        
+    bottom:18%;    
+    left:5%;    
+    
+}  
+
+#d10{        
+    bottom:30%;    
+    left:5%;    
+    
+}  
+
+#d12{        
+    bottom:42%;    
+    left:5%;    
+    
+}  
+
+#d20{        
+    bottom:55%;    
+    left:5%;    
+    
+}  
+
+#d100{        
+    bottom:67%;    
+    left:5%;    
+    
+}  
+
+
+
+#map{    
+    position:absolute ;
+    bottom:5%;
+    height:50px;
+    width:50px;
+    right:5%;
+    border-radius:5px;
+    display: inline;
+}     
+
+#map_close{    
+    position:absolute ;
+    bottom:5%;
+    height:50px;
+    width:50px;
+    right:5%;
+    border-radius:5px;
+    display: none;
+}
+
+#img{
+    position:absolute ;
+    top:6%;
+    left:5%;
+    height:75%;
+    width:90%;
+    border-radius:10px;
+}
+
+
+#map_img{
+    position:absolute ;
+    top:13%;
+    left:-18%;
+    height:60%;
+    width:135%;
+    border-radius:10px;
+    display: none;
+    z-index:99;
+    transform: rotate(90deg)
+}
+
+
+#img_pro{    
+    position:absolute ;
+    bottom:5%;
+    height:50px;
+    width:50px;
+    right:22%;
+    border-radius:5px;
+    display: inline;
+}     
+
+#cntrl_input{
+    position:absolute;
+    top:6%;
+    left:5%;
+    width:50%;
+    height:35%;
+    font-size:5px;
+    padding:50px 0px;
+    z-index:999;
+    
+  /* hex(82, 3, 252) */
+    border-radius: 10px;
+}
+
+#name{
+    position:absolute;
+    height:100%;
+    top:0%;
+    left:0%;
+    width:120%;
+    font-size:20px;
+    background: hsla(9, 0%, 0%, 0.5);
+    color: white ;
+    border-radius: 10px;
+    border: none;
+    outline:none;
+}
+
+
+
+#cntrl_btn{
+    position:absolute;
+    top:-85%;
+    left:0%;
+    width:100%;
+    height:100%;
+    padding:0px 0px;
+    color:withe;
+    background: none;
+    display:none;
+
+}
+
+#power{
+    position:absolute ;
+    top:95%;
+    left:30%;
+    color: #8DEEEE ;
+    font-size:20px;
+    width:20%;
+    color:white;
+}
+#fast{
+    position:absolute ;
+    top:105%;
+    left:30%;
+    font-size:20px;
+    width:40%;
+    color:white;
+}
+
+#state{
+    position:absolute ;
+    top:115%;
+    left:30%;
+    color: #8A2BE2 ;
+    font-size:20px;
+    width:40%;
+    color:white;
+}
+#mind{
+    position:absolute ;
+    top:125%;
+    left:30%;
+    color: #8A2BE2 ;
+    font-size:20px;
+    width:40%;
+    color:white;
+}
+
+
+#charc{
+    position:absolute ;
+    top:135%;
+    left:30%;
+    color: #FFB90F ;
+    font-size:20px;
+    width:40%;
+    color:white;
+}
+#wise{
+    position:absolute ;
+    top:145%;
+    left:30%;
+    color: #FFB90F ;
+    font-size:20px;
+    width:40%;
+    color:white;
+}
+
+
+input{
+outline:none;
+background:none;
+color:green;
+border:none;
+font-size:10px;
+}
+
+.input_value{
+    position:absolute ;
+    top:12%;
+    right:-30%;
+    width:45%;
+    height:90%;
+    font-size:20px;
+}
+
+#file_input [type=file]{
+    !important 
+    position:absolute ;
+    top: 30%;
+    left: 5%;
+    width: 90%;
+    height:8%;
+    font-size: 40px;
+    background: black ;
+    display: none ;
+}
+
+
+#power_input{
+    left:100px;
     
 }
-@-webkit-keyframes bord {
-0% {-webkit-transform: rotate(-360deg);}
-
-   50%{ transform: scale(1.15 , 1.15)  rotate(-360deg);
-   
-  100% { -webkit-transform:
-  rotate(-360deg);
-   }
-  
-}
-                             
+#fast_input{
+    left:100px;
+    
 }
 
+#state_input{
+    left:100px;
+    
+}
+#mind_input{
+    left:100px;
+    
+}
+
+#charc_input{
+    left:100px;
+    
+}
+#wise_input{
+    left:100px;
+    
+}
 
 
-#confirmation{
+#skill{
     position:absolute;
-    left:14% ;
-    font-family: "Verdana", Times, serif;
-    color:#FFFFFF;
-    font-weight:bold;
-    font-size: 15px;
-    width:70%;
-    text-align: center;
-    text-shadow:1px 1px 0px black;
+    top:100%;
+    height:80%;
+    width:90%;
+    left:5%;
+    border-radius:10px;
+    outline:none;
+    display: none;
 
 }
 
-.button{
-     position:absolute;
-     top:63%;
-     left:20%;   
-    width:40%;
-    height:4%;
+#pers{
+    position:absolute;
+    top:165%;
+    height:70%;
+    width:45%;
+    right:1%;
     border-radius:10px;
-    font-size: 19px;
-      
-     display:inline-block;
+}
+
+#lang{
+    position:absolute;
+    top:185%;
+    height:20%;
+    width:90%;
+    left:5%;
+    border-radius:10px;
+    outline:none;
+    display: none;
+}
+
+
+button{
+    position:absolute;
+    width:25px;
+    height:25px;
+    font-size: 19px;  
+    display:inline-block;
      text-decoration:'Veranda';
      outline:none;
      border:none;
      text-align:center;
      cursor:pointer;
-     padding:10px 20px;
+
      font-size:20px;
-     border-radius:5px;
-     background-color:#4CAF50;
+
+     background-color:  #AEFAFF ;
      box-shadow:0px 5px gray;
      text-indent:1px;
-     }
+    border-radius:100%;   
+  }
+
+     button:hover{
+     background-color:none;
      
-     .button:hover{
-     background-color:#3e8e41;
-     }
-     
-     
-     .button:active{
-     background-color:#3e8e41;
-     box-shadow:0px 2px gray;
-     transform:translateY(3px);
      
      }
 
+     button:active{
+     background-color:none;
+     box-shadow:0px 1px gray;
+     transform:translateY(4px);
+     
+     }
 
-#nobtn{
-    position:absolute;
-    top:20%;
-    height:35px;
+#save{
+    position: absolute ;
+    top:6%;
+    right:5%;
+    height:30px;
     width:30px;
+    color:green;
+    border-radius:5px;
+    margin:0px;
+    padding:0px;
+    z-index: 9999;
+    background:none;
+    box-shadow:none;
+    
+} 
+
+
+#home{    
+    position:absolute ;
+    top:-12%;
+    left:39%;
+    height:100%;
+    width:22%;
+   border-radius:5px;
+    display:inline ;
+     
+}     
+ 
+
+#open_charc{    
+    position:absolute ;
+    top:0%;
+    height:50px;
+    width:50px;
+    right:5%;
+   border-radius:5px;
+    display: inline;
+}     
+
+
+#open_note{    
+    position:absolute ;
+    top:0%;
+    height:50px;
+    width:50px;
+    left:22%;
+    border-radius:5px;
+    display: inline;
+}     
+
+#close_note{    
+    position:absolute ;
+    top:0%;
+    height:50px;
+    width:50px;
     left:5%;
-    text-position:center;
-    background-color: #ff6666;
-     text-indent:-85%;
+   border-radius:5px;
+    display:none;
+}   
+
+#open_calc{    
+    position:absolute ;
+    top:0%;
+    height:50px;
+    width:50px;
+    left:5%;
+    border-radius:5px;
+    display: inline; 
+}
+
+
      
-}
-
-#yesbtn{
+#book{    
     position:absolute ;
-    top:20%;
-    height:35px;
-    width:30px;
-    left:80%;
-    vertical-align:medium ;
-     background-color: #99e699;
-     text-indent:-85%;
+    top:0%;
+    height:50px;
+    width:50px;
+    right:22%;
+   border-radius:5px;
+    display: inline; 
 }
 
-#cancel{
+
+#book_close{    
+    position: absolute;
+    top:110%;    
+    left:45%;
+    color:red;
+    background:none;
+    border-radius:10px;
+    display:none ;
+    box-shadow: none ;
+    text-indent:-2px;
+    paddin:0px;
+    margin:0px;
+}
+
+
+
+.btn_power{
+   position:absolute; 
+   top:98%;
+   right:20%;
+}
+.btnM_power{
+    position:absolute;
+    top:98%;
+    left:20%;     
+}
+
+
+.btn_fast{
+    position:absolute;
+    top:108%;
+    right:20%;  
+}
+.btnM_fast{
+    position:absolute;
+    top:108%;
+    left:20%;  
+}
+
+
+.btn_charc{
+    position:absolute;
+    top:138%;
+    right:20%;  
+}
+.btnM_charc{
+    position:absolute;
+    top:138%;
+    left:20%;  
+}
+
+
+.btn_state{
+    position:absolute;
+    top:118%;
+    right:20%;  
+}
+.btnM_state{
+    position:absolute;
+    top:118%;
+    left:20%;  
+}
+
+
+.btn_mind{
+    position:absolute;
+    top:128%;
+    right:20%;  
+}
+.btnM_mind{
+    position:absolute;
+    top:128%;
+    left:20%;  
+}
+
+
+.btn_wise{
     position:absolute ;
-    top:190%;
-    height:45px;
-    width:17%;
-    left:83%;
-     background-color: #99e699;
-     text-indent:-85%;
-     display:none;
-     z-index:2;
+    top:148%;
+    right:20%;
 }
-
-#helpBox{
-   position:absolute;
-   top:-30%;
-   left:50%;
-   height:300%;
-   width:100%;
-   transform:translate(-50%,0);
-    text-indent:15px;
-    border:0;
-    display:none;
-    font-size:16px;
-    border-radius:5.5px;
-   
-}
-
-#helpButton{
+.btnM_wise{
     position:absolute;
-    top:190%;
-    height:45px;
-    width:100%;
-    display:none;
-   left:0%;
-   background-color: orange;
-   font-size:13px;
-   
+    top:148%;
+    left:20%;  
 }
 
-#trainArea{
-    position:absolute;
-     top:130%;
-     left:-190%;
-     height:60px;
-     background-color: #FFD700 ;
-     width:500%;
-     display:none;
-     z-index:2; 
-    border-radius:10px;
-}
 
-#footer input{
-    height:9%;
-    width: 90%;
-    display:flex;
-}
-#input{
-    position:fixed;
-    left:0%;
-    bottom:0%;
-    height:58px;
-    width:81%;
-    text-indent:15px;
-    border:0;
-    outline: none;
-    font-size:16px;
-    border-radius:0px;
-    
-}
-#chatbtn{
-outline:none;
-position:fixed;
-left:81%;
-    bottom:0%;
-    height:58px;
-    width:19%;
-   text-align:center ;
-    line-height: 60px ;
-    border-radius:0px;
-   font-size: 200%;
-  color:#ffq;
- background-color:#fff; 
-}
-.plane{
-    position: absolute;
-    left:30%;
-    top:30%;
-}
-
-.material-icons{
-    position: absolute;
-    left:47%;
-    top:15%;
-}
-
-#material-icons-c{
-    position: absolute;
-    left:90%;
-    top:55%;
-    font-size:17px;
+@keyframes anim_show_res{
+    0%{ transform: scale(0) ;}  
+    100%{ transform: scale(1) ;}   
     
 }
 
-#material-icons-x{
-    position: absolute;
-    left:47%;
-    top:20%;
+@keyframes anim_hide_res{
+    0%{ transform: scale(1) ;}  
+    100%{ transform: scale(0) ;}   
+    
 }
 
-#menu{
-    position: absolute;
-    height:20%;
-    width:5%;
-    left:-10%;
-    top:10%;
-    z-index:3;
-    }
-.menuplat{
-     position:absolute;
-     top:15%;
-     left:20px;
-     height:60px;
-     background-color: #FFD700 ;
-     width:90%;
-     display:none;
-     z-index:2; 
-    border-radius:10px;
+
+@keyframes anim_show{
+    0%{ transform: translateX(-100%) ;}  
+    100%{ transform: translateX(0%) ;}   
     
-}    
+}
+
+@keyframes anim_show_d6{
+    0%{ transform: translateX(-200%) ;}  
+    100%{ transform: translateX(0%) ;}   
     
+}
+
+
+@keyframes anim_show_y{
+    0%{ transform: translateY(-100%) ;}  
+    100%{ transform: translateY(0%) ;}   
+    
+}
+
+@keyframes anim_show_y_d8{
+    0%{ transform: translateY(100%) ;}  
+    100%{ transform: translateY(0%) ;}   
+    
+}  
+
+@keyframes anim_show_y_d10{
+    0%{ transform: translateY(280%) ;}  
+    100%{ transform: translateY(0%) ;}   
+    
+} 
+
+@keyframes anim_show_y_d12{
+    0%{ transform: translateY(400%) ;}  
+    100%{ transform: translateY(0%) ;}   
+    
+} 
+
+@keyframes anim_show_y_d20{
+    0%{ transform: translateY(500%) ;}  
+    100%{ transform: translateY(0%) ;}   
+    
+}     
+
+@keyframes anim_show_y_d100{
+    0%{ transform: translateY(650%) ;}  
+    100%{ transform: translateY(0%) ;}   
+    
+}     
+
+
+
+
+
+@keyframes anim_hide{
+    100%{ transform: translateX(-130%) ;}  
+    0%{ transform: translateX(0%) ;}   
+    
+}
+
+@keyframes anim_hide_d6{
+    100%{ transform: translateX(-259%) ;}  
+    0%{ transform: translateX(0%) ;}   
+    
+}
+
+
+@keyframes anim_hide_y{
+    100%{ transform: translateY(-100%) ;}  
+    0%{ transform: translateY(0%) ;}   
+    
+}
+
+@keyframes anim_hide_y_d8{
+    100%{ transform: translateY(140%) ;}  
+    0%{ transform: translateY(0%) ;}   
+    
+}  
+
+@keyframes anim_hide_y_d10{
+    100%{ transform: translateY(262%) ;}  
+    0%{ transform: translateY(0%) ;}   
+    
+} 
+
+@keyframes anim_hide_y_d12{
+    100%{ transform: translateY(391%) ;}  
+    0%{ transform: translateY(0%) ;}   
+    
+} 
+
+@keyframes anim_hide_y_d20{
+    100%{ transform: translateY(530%) ;}  
+    0%{ transform: translateY(0%) ;}   
+    
+}     
+
+@keyframes anim_hide_y_d100{
+    100%{ transform: translateY(660%) ;}  
+    0%{ transform: translateY(0%) ;}   
+    
+}     
+
+
+
+
+
     
 </style>
+ 
+ 
 
 
-</body>
-</html>
+        
+<script>
+ 
+      
+function load(){
+document.getElementsByClassName("load")[0].style.display='none';
+}
+setInterval(load,1000);        
+       
 
-ion: absolute;
-    left:47%;
-    top:20%;
+
+let cntrl_btn = document.getElementById("cntrl_btn") 
+let open_charc = document.getElementById("open_charc") 
+let close_charc = document.getElementById("home") 
+let open_note = document.getElementById("open_note") 
+let open_calc = document.getElementById("open_calc")
+tools = document.getElementById("tools")
+let casino =document.getElementById("casino") 
+let casino_close =document.getElementById("casino_close")
+
+let img_pro = document.getElementById("img_pro") 
+let img_pro_input = document.getElementById("img_pro_input") 
+
+
+let map =document.getElementById("map")
+let map_close =document.getElementById("map_close") 
+let map_img =document.getElementById("map_img")
+let cntrl_input = document.getElementById("cntrl_input") 
+let img = document.getElementById("img")
+
+let save = document.getElementById("save") 
+
+let skill = document.getElementById("skill") 
+let lang = document.getElementById("lang")
+
+let power_input = document.getElementById("power_input")     
+       
+let fast_input = document.getElementById("fast_input")
+           
+let state_input = document.getElementById("state_input")
+
+let mind_input = document.getElementById("mind_input")           
+
+let charc_input = document.getElementById("charc_input")
+
+let wise_input = document.getElementById("wise_input")           
+
+
+
+
+let d4 = document.getElementById("d4")     
+       
+let d6 = document.getElementById("d6")
+           
+let d8 = document.getElementById("d8")
+
+let d10 = document.getElementById("d10")           
+
+let d12 = document.getElementById("d12")
+
+let d20 = document.getElementById("d20")           
+
+let d100 = document.getElementById("d100")
+
+let res = document.getElementById("res") 
+let res_d10 = document.getElementById("res_d10") 
+
+
+let name_input = document.getElementById("name")     
+let file_input = document.getElementById("file_input")         
+
+
+
+
+let book = document.getElementById("book")
+let book_close = document.getElementById("book_close")
+let iframe = document.getElementById("iframe")
+ 
+skill.value = localStorage.getItem("skill") 
+lang.value = localStorage.getItem('lang')
+
+power_input.value = localStorage.getItem('power_input');
+
+fast_input.value = localStorage.getItem('fast_input');
+
+mind_input.value = localStorage.getItem('mind_input'); 
+
+charc_input.value = localStorage.getItem('charc_input');
+
+state_input.value = localStorage.getItem('state_input');
+
+wise_input.value = localStorage.getItem('wise_input');
+
+name_input.value = localStorage.getItem('name_input');
+
+
+
+
+function info_update() {
+
+localStorage.setItem('skill', skill.value)
+localStorage.setItem('lang', lang.value)
+
+localStorage.setItem('power_input', power_input.value)
+
+localStorage.setItem('fast_input', fast_input.value)
+
+localStorage.setItem('mind_input', mind_input.value)
+
+localStorage.setItem('charc_input', charc_input.value)
+
+localStorage.setItem('state_input', state_input.value)
+
+localStorage.setItem('wise_input', wise_input.value)
+
+localStorage.setItem('name_input', name_input.value)
+
+localStorage.setItem('file_input', file_input.value)
+
+
+alert( file_input.value)
+alert( name_input.value)
+
+} 
+
+
+let x=document.querySelector('#file_input');
+
+x.addEventListener("change", function() {
+
+document.querySelector("img").src =window.URL.createObjectURL(x.files[0]);
+
+file_input.value = localStorage.getItem('file_input');   
+
+file_input.style.display = "inline" 
+let src = file_input.value
+document.getElementById("img").innerHTML= src ;
+
+})
+
+img_pro.addEventListener("click",function(){
+alert("Знаходиться на стадії розробки") 
+
+document.getElementById("img_pro").innerHTML= src ;
+
+})
+
+
+
+
+
+save.addEventListener("click",function(){
+
+info_update() 
+
+swal({
+ text: "Збережено!", 
+ icon: "success", 
+  button: false 
+});
+
+}) 
+
+
+open_calc.addEventListener("click",function(){
+
+tools.style.display = "inline" ;
+
+cntrl_btn.style.display = "none" ; 
+cntrl_input.style.display = "none" ; 
+img.style.display = "none" ;
+open_charc.style.display = "inline" ;
+close_charc.style.display = "inline" ;
+
+})
+
+
+casino.addEventListener("click",function(){
+
+res.style.display = "inline"
+res.style.animation = "anim_show_res 1s"
+
+casino.style.display = "none"
+casino_close.style.display = "inline"
+
+d4.style.animation = "anim_show 1s"
+d4.style.display = "inline"
+
+d6.style.animation = "anim_show_d6 1s"
+d6.style.display = "inline"
+
+d8.style.animation = "anim_show_y_d8 1s"
+d8.style.display = "inline"
+
+d10.style.animation = "anim_show_y_d10 1s"
+d10.style.display = "inline"
+
+d12.style.animation = "anim_show_y_d12 1s"
+d12.style.display = "inline"
+
+d20.style.animation = "anim_show_y_d20 1s"
+d20.style.display = "inline"
+
+d100.style.animation = "anim_show_y_d100 1s"
+d100.style.display = "inline"
+
+
+if (map_img.style.display = "inline") {
+map_img.style.display = "none" 
+map.style.display = "inline" 
+map_close.style.display = "none"
 }
 
-#menu{
-    position: absolute;
-    height:20%;
-    width:5%;
-    left:-10%;
-    top:10%;
-    z-index:3;
+})
+
+casino_close.addEventListener("click",function(){
+
+casino.style.display = "inline"
+casino_close.style.display = "none"
+res.style.animation = "anim_hide_res 1s"
+res_d10.style.display = "none" 
+
+setTimeout( function whait(){
+d4.style.display = "none"
+d6.style.display = "none"
+d8.style.display = "none"
+d10.style.display = "none"
+d12.style.display = "none"
+d20.style.display = "none"
+d100.style.display = "none"
+res.style.display = "none" 
+
+}, 1000)
+
+d4.style.animation = "anim_hide 1s"
+
+d6.style.animation = "anim_hide_d6 1s"
+
+
+d8.style.animation = "anim_hide_y_d8 1s"
+
+
+d10.style.animation = "anim_hide_y_d10 1s"
+
+
+d12.style.animation = "anim_hide_y_d12 1s"
+
+
+d20.style.animation = "anim_hide_y_d20 1s"
+
+
+d100.style.animation = "anim_hide_y_d100 1s"
+
+
+})
+
+
+
+
+
+map.addEventListener("click",function(){
+
+map_img.style.display = "inline" 
+map.style.display = "none" 
+map_close.style.display = "inline" 
+
+
+casino.style.display = "inline"
+casino_close.style.display = "none"
+res.style.display = "none"
+
+setTimeout( function whait(){
+d4.style.display = "none"
+d6.style.display = "none"
+d8.style.display = "none"
+d10.style.display = "none"
+d12.style.display = "none"
+d20.style.display = "none"
+d100.style.display = "none"
+}, 1000)
+
+d4.style.animation = "anim_hide 1s"
+
+d6.style.animation = "anim_hide_d6 1s"
+
+
+d8.style.animation = "anim_hide_y_d8 1s"
+
+
+d10.style.animation = "anim_hide_y_d10 1s"
+
+
+d12.style.animation = "anim_hide_y_d12 1s"
+
+
+d20.style.animation = "anim_hide_y_d20 1s"
+
+
+d100.style.animation = "anim_hide_y_d100 1s"
+
+
+
+})
+
+map_close.addEventListener("click",function(){
+map_img.style.display = "none" 
+map.style.display = "inline" 
+map_close.style.display = "none"
+
+if ( d4.style.display = "inline"){
+
+casino.style.display = "inline"
+casino_close.style.display = "none"
+
+d4.style.display = "none"
+d6.style.display = "none"
+d8.style.display = "none"
+d10.style.display = "none"
+d12.style.display = "none"
+d20.style.display = "none"
+d100.style.display = "none"
+
+}
+
+ 
+})
+
+function randomInteger(min, max) {
+let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
+
+
+d4.addEventListener("click",function(){
+
+document.getElementById("res").innerHTML="d4: "+ randomInteger(1, 4) ;   
+res_d10.style.display = "none"
+
+})
+
+
+d6.addEventListener("click",function(){
+
+document.getElementById("res").innerHTML="d6: "+ randomInteger(1, 6) ;   
+res_d10.style.display = "none"
+
+})
+
+d8.addEventListener("click",function(){
+
+document.getElementById("res").innerHTML="d8: "+ randomInteger(1, 8) ;   
+res_d10.style.display = "none"
+})
+
+d10.addEventListener("click",function(){
+
+document.getElementById("res").innerHTML="d10: "+ randomInteger(1, 10) ;   
+res_d10.style.display = "none"
+})
+
+d12.addEventListener("click",function(){
+
+document.getElementById("res").innerHTML="d12: "+ randomInteger(1, 12) ;   
+res_d10.style.display = "none"
+})
+
+d20.addEventListener("click",function(){
+
+document.getElementById("res").innerHTML="d20: "+ randomInteger(1, 20) ;    
+res_d10.style.display = "none"
+})
+
+d100.addEventListener("click",function(){
+
+document.getElementById("res").innerHTML="d10: "+ randomInteger(1, 9) ;   
+
+document.getElementById("res_d10").innerHTML="d10: "+ randomInteger(1, 9) ;  
+res_d10.style.display = "inline"
+
+})
+
+
+
+
+
+open_charc.addEventListener("click",function(){
+
+cntrl_btn.style.display = "inline" ; 
+cntrl_input.style.display = "none" ; 
+img.style.display = "none" ;
+open_charc.style.display = "inline" ;
+close_charc.style.display = "inline" ;
+tools.style.display = "none" ;
+})
+
+open_note.addEventListener("click",function(){
+
+lang.style.display = "inline" ;
+skill.style.display = "inline" ;
+iframe.style.display = "none";
+book_close.style.display = "none" ;
+})
+
+close_charc.addEventListener("click",function(){
+tools.style.display = "none" ;
+
+cntrl_btn.style.display = "none" ; 
+cntrl_input.style.display = "inline" ; 
+img.style.display = "inline" ;
+open_charc.style.display = "inline" ;
+close_charc.style.display = "inline" ;
+
+iframe.style.display ="none"    
+book_close.style.display = "none"
+book.style.display = "inline"  
+skill.style.display = "none" ;
+lang.style.display = "none" ;
+
+cntrl_btn.style.display = "none" ; 
+cntrl_input.style.display = "inline" ; 
+img.style.display = "inline" ;
+open_charc.style.display = "inline" ;
+close_charc.style.display = "inline" ;
+
+})
+
+
+
+
+
+book.addEventListener("click",function(){
+  
+iframe.style.display ="inline"    
+book_close.style.display = "inline"
+book.style.display = "inline"  
+skill.style.display = "none" ;
+lang.style.display = "none" ;
+})
+
+
+
+
+book_close.addEventListener("click",function(){
+  
+iframe.style.display ="none"    
+book_close.style.display = "none"
+book.style.display = "inline"   
+ 
+})
+
+
+
+
+function uppower() {
+document.getElementById("power_input").innerHTML="Сила: " + power_input.value;
+    
+    }  
+    
+function upfast() {
+    document.getElementById("fast_input").innerHTML="Спритність: " + fast_input.value ;
+    
+    }  
+  
+  
+  
+  
+  function upstate() {
+    document.getElementById("state_input").innerHTML="Статура: " + state_input.value  ;
+    
+    }  
+    
+function upmind() {
+    document.getElementById("mind_input").innerHTML="Інтелект:    " + mind_input.value ;
+    
+    }  
+    
+    
+   function upcharc() {
+    document.getElementById("charc_input").innerHTML="Харизма: " + charc_input.value  ;
+    
+    }  
+    
+function upwise() {
+    document.getElementById("wise_input").innerHTML="Мудрість: " + wise_input.value ;
+    
+    }    
+    
+  
+  
+                                                                
+    function power() {
+    power_input.value ++;
+    uppower();
     }
-.menuplat{
-     position:absolute;
-     top:15%;
-     left:20px;
-     height:60px;
-     background-color: #FFD700 ;
-     width:90%;
-     display:none;
-     z-index:2; 
-    border-radius:10px;
+    function fast() {
+    fast_input.value ++;
+    upfast();
+    }
     
-}    
+    function state() {
+    state_input.value ++;
+    upstate();
+    }
+    function mind() {
+    mind_input.value ++;
+    upmind();
+    }
+    
+     function charc() {
+    charc_input.value ++;
+    upcharc();
+    }
+    function wise() {
+    wise_input.value ++;
+    upwise();
+    }
     
     
-</style>
+    
+    
+        
+    
+   function power_min() {
+    power_input.value --;
+    uppower();
+    }
+    function fast_min() {
+    fast_input.value --;
+    upfast();
+    } 
+    
+    
+    function state_min() {
+    state_input.value --;
+    upstate();
+    }
+    function mind_min() {
+    mind_input.value --;
+    upmind();
+    } 
+    
+    function charc_min() {
+    charc_input.value --;
+    upcharc();
+    }
+    function wise_min() {
+    wise_input.value --;
+    upwise();
+    } 
+    
 
 
-</body>
+ </script>
+            
+         
+                  
+    </body>
 </html>
+
+
+                 
