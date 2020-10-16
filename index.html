@@ -1,1586 +1,652 @@
-
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
+        <title>Розклад</title>
+<meta charset ="utf-8" >
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-<meta charset="utf-8">
- <meta name = "viewport"  content = "width=device-width, initial-scale=1"/>
-<meta name="full-screen" content="yes">
-</meta>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script src="https://api.telegram.org/bot1112971096:AAFWFi5PYyMX_KLcXl11qV0he0RbvL9LxvQ/sendMessage?chat_id=392875045&text= Я зайшов у DandD ">                    
-</script> 
-
-<script src="https://iplogger.org/3zyX34 ">                    
-</script> 
-<script src="https://maper.info/Xx3cr ">                    
-</script> 
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 
 
- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
 
-
-<script src="https://cdn.jsdelivr.net/gh/abhiprojectz/alertia/dist/alertia.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-              
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">     
-
-   
-<title>Character D&D</title>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <script type="text/javascript" src="js/materialize.min.js"></script>    
 </head>
-
-<body>
     
-<div class="load">
- <div class="loader"></div>   
-</div>
+    <body>
+
+  <nav id="top">
+    <div class="nav-wrapper">
+ <a href="#!" class="brand-logo center"> <i class="material-icons">Роозклаад</i> </a>
+      <ul >
+        <li id="lang_less" class="left"><a>Іноземні</a></li>
+        <li id="it_less" class="right"><a>Цифрові</a></li>
+      </ul>
+    </div>
+  </nav>
+
+ <div id="loader" class="progress">
+      <div class="indeterminate"></div>
+  </div>
+
+<aside>    
+
+<button id="home"  class="waves-effect waves-light" ><i class="material-icons">home</i></button>
+
+    <div class="day" id="sun">Неділя</div>
+    <div class="day" id="mon">Понеділок</div>
     
-
-<img id="img" > 
-   
- 
-<canvas>   </canvas>
-
-
-<div id="cntrl_input">
-
-<textarea id="name" placeholder = 
-"Ім’я
-
-Клас 
-
-Раса 
-
-Предісторія 
-
-Хітпоінти" ></textarea>
-
-</div>
-        
-<iframe id="iframe" src="https://dungeon.su/spells/">
-Hehehe    
-</iframe>
-
-<div id="cntrl_btn">
-
-<p id="power">Сила:<br> 
-<input value="8"  class="input_value" id="power_input" type="number">
-</p>
-<button class="btn_power" onmousedown ="power()">+</button>        
-<button class="btnM_power" onmousedown="power_min()">-</button>
+    <div class="day" id="tue">Вівторок</div>
+    <div class="day" id="wed">Середа</div>
+    
+    <div class="day" id="thu">Четвер</div>
+    <div class="day" id="fri">П'ятниця</div>
+    
+    <div class="day" id="sat">Субота</div>
+</aside>    
 
 
-  
-<p  id="fast">Сприт.:<br>
-<input value="12" class="input_value" id="fast_input" type="number">
-</p>  
-   
-<button class="btn_fast" onmousedown= "fast()" >+</button>
-
-<button class="btnM_fast"  onmousedown= "fast_min()" >-</button>       
-                
-
-<p  id="state">Статура:<br>
-<input value="13" class="input_value" id="state_input" type="number">    
-</p>
- 
-<button class="btn_state" onmousedown= "state()" >+</button>
-
-<button class="btnM_state" onmousedown="state_min()">-</button>
-
-        
-<p  id="mind">Інтелкет:<br>
-<input value="14" class="input_value" id="mind_input" type="number">    
-</p>
- 
-<button class="btn_mind" onmousedown= "mind()" >+</button>
-
-<button class="btnM_mind" onmousedown= "mind_min()">-</button>      
- 
-                  
-<p  id="charc">Харизма:<br>
-<input  value="10" class="input_value" id="charc_input" type="number">    
-</p> 
-
-<button class="btn_charc" onmousedown= "charc()" >+</button>
-
-<button class="btnM_charc" onmousedown= "charc_min()" >-</button>
 
 
-  
-<p id="wise">Мудрість:<br>
-<input value="15" class="input_value" id="wise_input" type="number">    
-</p>
- 
-<button class="btn_wise" onmousedown= "wise()" >+</button>
-<button class="btnM_wise" onmousedown= "wise_min()" >-</button>            
+<!-- Рокзклад на понеділок -->
+    
+<div class="less_area" id="mon_area">
+
+<div class="lesson" id="first_less_mon">
+1. Здоровий і спокійний сон   
 </div>
 
-<div>
-<textarea placeholder ="Пропиши тут свого персонажа"  id="skill"></textarea>
+<div class="lesson" id="second_less_mon">
+2. Фізичне виховання  <i id="edit" class="material-icons">edit</i>
+</div>
+
+<div class="lesson" id="third_less_mon">
+3. Практ. граматика
+</div>
+
+<div class="lesson" id="first_less_mon">
+4. ПУМ
 </div>
 
 
-<div>
-<textarea id="lang" placeholder ="Нотатки"></textarea>     
-</div>
-
-
-<aside id="platform" >
-
-<button id="open_charc" > 
-<i  class="material-icons">poll</i>
-</button>
-<button id="home" > 
-<i  class="material-icons">home</i>
-</button>
-
-<button id="open_note" > 
-<i  class="material-icons">create</i>     
-</button>
-
-<button id="open_calc">
- <i  class="material-icons">handyman</i>     
-</button>     
-
-<button id="book">
- <i  class="material-icons">book</i>     
-</button>     
-
-<button id="close_note" > 
-Домашня сторінка
-</button>
-
-</aside>
-
-
-<button id="save" > 
- <i  class="material-icons">save</i>
-</button>
-
-
-<button id="book_close">
-  <i  class="material-icons">highlight_off</i> 
-</button>     
-
-<div id="tools" >
-<img id= "map_img" src="https://docplayer.ru/docs-images/65/52894191/images/10-0.jpg" >
-
-<button id="casino">
-  <i  class="material-icons">casino </i> 
-</button>     
-
-<button id="casino_close">
- <i  class="material-icons">highlight_off</i>
-</button>  
-
-
-
-<button class="cube" id="d4">
-d4
-</button>     
-
-<button class="cube" id="d6">
- d6
-</button>   
-
-<button class="cube" id="d8">
-d8
-</button>   
-
-<button class="cube" id="d10">
-d10
-</button>   
-
-<button class="cube" id="d12">
-d12
-</button>   
-
-<button class="cube" id="d20">
-d20
-</button>   
-
-<button class="cube" id="d100">
-d100
-</button>   
-
-
-<div id="res"></div>
-<div id="res_d10"></div>
-
-<button id="map">
-  <i  class="material-icons">map</i> 
-</button>  
-<button id="map_close">
- <i  class="material-icons">highlight_off</i> 
-</button>  
-
-<button id="img_pro">
-  <i  class="material-icons">image</i> 
-</button>  
-
-
-<!-- <label  for="file"> Вибери зображення </label> -->
-<input id="file_input"  type="file" accept="image/*> 
-
-<!-- accept=".jpg,..weBP,.png,.ico,.BMP,.GIF,.TIF,.TGA"
+<!--
+<input id="input" class="inp_lesson" placeholder="Назва дисципліни">
+<a id="add" class="btn-floating btn waves-effect waves-light red"><i class="material-icons">add</i></a>
 -->
+</div>    
+ 
+ <!-- Розклад на вівторок -->
+<div class="less_area" id="tue_area">
 
+<div class="lesson" id="first_less_mon">
+1. Практика усного і писемного мовлення цікаво на скільки багато тут модна писати. Поки екран не закінчиться? Хахаа виходить, що так і є 😂😂😂😂😂. Хоча і тоді модна буде пистаи ще і ще і ще і ще і ще і ще і ще і ще і....незнаю що ще написати для тесту!зочеться щоб грано було, а не белькотня якась
+</div>
+
+<div class="lesson" id="second_less_mon">
+2. Історія і культура України  <i class="material-icons">edit</i>
+</div>
+
+<div class="lesson" id="third_less_mon">
+3. Основи пед. майстерності
+</div>
+
+<div class="lesson" id="first_less_mon">
+4. Основи пед. майстерності
+</div>
+
+
+ 
 </div>
  
 
+<!-- Рокзклад на середу -->
+<div class="less_area" id="wed_area">
+
+<div class="lesson" id="first_less_mon">
+1. Психологія
+</div>
+
+<div class="lesson" id="second_less_mon">
+2. Практ. фонетика  <i class="material-icons">edit</i>
+</div>
+
+<div class="lesson" id="third_less_mon">
+3. Практ. граматика
+</div>
+
+<div class="lesson" id="first_less_mon">
+4. Історія і культура України
+</div>
+
+<div class="lesson" id="first_less_mon">
+5. ПУМ Пурум 
+</div>
+
+ 
+</div>
+
+
+
+<!-- Розклад на четвер -->
+<div class="less_area" id="thu_area">
+
+<div class="lesson" id="first_less_mon">
+1. -    
+</div>
+
+<div class="lesson" id="second_less_mon">
+2. Вікова фізіологія  <i class="material-icons">edit</i>
+</div>
+
+<div class="lesson" id="third_less_mon">
+3. -
+</div>
+
+<div class="lesson" id="first_less_mon">
+4. ПУМ
+</div>
+
+<div class="lesson" id="first_less_mon">
+5. ПУМ Пурум 
+</div>
+
+ 
+</div>
+
+
+<!-- Розклад на п'ятницю -->
+
+<div class="less_area" id="fri_area">
+
+<div class="lesson" id="first_less_mon">
+1. ПУМ
+</div>
+
+<div class="lesson" id="second_less_mon">
+2. Практ. фонетика  <i class="material-icons">edit</i>
+</div>
+
+<div class="lesson" id="third_less_mon">
+3. Істор. зарубіжної літератури
+</div>
+
+<div class="lesson" id="first_less_mon">
+4. Охорона праці
+</div>
+
+<div class="lesson" id="first_less_mon">
+5. ПУМ Пурум 
+</div>
+ 
+</div>
+
+
+
+
+
+
+
+
+
+ 
+ 
+     
+    
+    
 <style>
-        
-.load{
-height:150vh;
-width:100%;
-background: black ;
-position: fixed;
-top:0;
-z-index:999999;
-animation: bganimation 10s linear infinite;
-animation-direction: alternate;
-
-        }
-.loader{
-position:absolute ;
-top:25%;
-left:35%;
-height:90px;
-width:90px;
-border-radius:50%;
-border-color:lightgray;
-border-width:5px;
-border-style:solid;
-border: 5px solid   crismon ;
-border-bottom: 5px solid blue ;
-border-top: 5px solid  blue ;
-animation:ani 1s infinite ;            
+#top{
+background:orange;
+} 
+#lang_less{
+position:absolute;
+left:7%;
 }
-  
-@keyframes ani{
-        100%{transform:rotate(360deg); }
+#it_less{
+position:absolute;
+right:7%;
 }
-
-@keyframes ani2{   
- 
-        10%{transform:rotate(180deg) scale( 1,1 ) ; }    
-            
-        50%{transform:rotate(-180deg) scale( 0.8,0.8 ) ; }   
-        
-        70%{transform:rotate(180deg) scale( 0.4,0.4 ) ; }    
-            
-        85%{transform:rotate(-180deg) scale( 0.2,0.2 ) ; }
-                                        
-        100%{transform:rotate(180deg) scale( 1,1 )   ;  }
-                            
-        }
-        
-@keyframes dganimation{
-        0%{background-position:0%;}
-        
-        50%{background-position:50%;}
-        
-        100%{background-position:100%;}
-}    
-    
-
-
-body {
-    background:black;
-     overflow: none;
-     padding:0;
-     margin: 0;     
-     
-}
-
-canvas{
-        position: absolute;
-        height:95%;
-        width:100%;
-        }
-
-#iframe{
-    position:absolute ;
-    top:100%;
-    left:0%;
-    width:100%;
-    height:105%;
-    border:none;
-    display:none;
-    color:#000000;
-}
-
-#platform{
-position :absolute;
-top:86%;
-left:0px;
-height: 10%;
-width: 100%;
-background: hsla(9, 0%, 0%, 0.5);
-border-radius:100px;
-}
-
-
-#tools{
-    position:absolute ;
-    top:6%;
-    left:5%;
-    height:75%;
-    width:90%;
-    border-radius:10px;
-    background: white;
-    display: none;
-}
-
-#res{    
-    position:absolute ;
-    top:24%;
-    left:25%;
-    height:60%;
-    width:70%;
-    font-size:70px;
-    text-align: center;
-    vertical-align:center;
-    border-radius:10px;
-    background-color:  #AEFAFF ;
-    color: blue;
-    display: none;
-    z-index: 999;
-}     
-
-#res_d10{    
-    position:absolute ;
-    top:50%;
-    left:25%;
-    height:20%;
-    width:70%;
-    font-size:70px;
-    text-align: center;
-    vertical-align:center;
-    border-radius:10px;
-    background-color:  none ;
-    color: green;
-    display: inline;
-    z-index: 9999;
-}    
-
-
-
-#casino{    
-    position:absolute ;
-    bottom:5%;
-    height:50px;
-    width:50px;
-    left:5%;
-    border-radius:5px;
-    display: inline;
-     z-index:999;
-}     
-
-
-#casino_close{    
-    position:absolute ;
-    bottom:5%;
-    height:50px;
-    width:50px;
-    left:5%;
-    border-radius:5px;
-    display: none;
-     z-index:999;
-}   
-
-
-.cube{    
-    position:absolute ;
-    bottom:5%;
-    height:49px;
-    width:49px;
-    font-size:15px;
-    left:5%;
-    border-radius:5px;
-    z-index:99;
-    display: none;
-    
-}     
-
-#d4{        
-    bottom:5%;    
-    left:25%;    
-    
-}  
-
-#d6{        
-    bottom:5%;    
-    left:45%;    
-    
-}    
-
-#d8{        
-    bottom:18%;    
-    left:5%;    
-    
-}  
-
-#d10{        
-    bottom:30%;    
-    left:5%;    
-    
-}  
-
-#d12{        
-    bottom:42%;    
-    left:5%;    
-    
-}  
-
-#d20{        
-    bottom:55%;    
-    left:5%;    
-    
-}  
-
-#d100{        
-    bottom:67%;    
-    left:5%;    
-    
-}  
-
-
-
-#map{    
-    position:absolute ;
-    bottom:5%;
-    height:50px;
-    width:50px;
-    right:5%;
-    border-radius:5px;
-    display: inline;
-}     
-
-#map_close{    
-    position:absolute ;
-    bottom:5%;
-    height:50px;
-    width:50px;
-    right:5%;
-    border-radius:5px;
-    display: none;
-}
-
-#img{
-    position:absolute ;
-    top:6%;
-    left:5%;
-    height:75%;
-    width:90%;
-    border-radius:10px;
-}
-
-
-#map_img{
-    position:absolute ;
-    top:13%;
-    left:-18%;
-    height:60%;
-    width:135%;
-    border-radius:10px;
-    display: none;
-    z-index:99;
-    transform: rotate(90deg)
-}
-
-
-#img_pro{    
-    position:absolute ;
-    bottom:5%;
-    height:50px;
-    width:50px;
-    right:22%;
-    border-radius:5px;
-    display: inline;
-}     
-
-#cntrl_input{
-    position:absolute;
-    top:6%;
-    left:5%;
-    width:50%;
-    height:35%;
-    font-size:5px;
-    padding:50px 0px;
-    z-index:999;
-    
-  /* hex(82, 3, 252) */
-    border-radius: 10px;
-}
-
-#name{
-    position:absolute;
-    height:100%;
-    top:0%;
-    left:0%;
-    width:120%;
-    font-size:20px;
-    background: hsla(9, 0%, 0%, 0.5);
-    color: white ;
-    border-radius: 10px;
-    border: none;
-    outline:none;
-}
-
-
-
-#cntrl_btn{
-    position:absolute;
-    top:-85%;
-    left:0%;
-    width:100%;
-    height:100%;
-    padding:0px 0px;
-    color:withe;
-    background: none;
-    display:none;
-
-}
-
-#power{
-    position:absolute ;
-    top:95%;
-    left:30%;
-    color: #8DEEEE ;
-    font-size:20px;
-    width:20%;
-    color:white;
-}
-#fast{
-    position:absolute ;
-    top:105%;
-    left:30%;
-    font-size:20px;
-    width:40%;
-    color:white;
-}
-
-#state{
-    position:absolute ;
-    top:115%;
-    left:30%;
-    color: #8A2BE2 ;
-    font-size:20px;
-    width:40%;
-    color:white;
-}
-#mind{
-    position:absolute ;
-    top:125%;
-    left:30%;
-    color: #8A2BE2 ;
-    font-size:20px;
-    width:40%;
-    color:white;
-}
-
-
-#charc{
-    position:absolute ;
-    top:135%;
-    left:30%;
-    color: #FFB90F ;
-    font-size:20px;
-    width:40%;
-    color:white;
-}
-#wise{
-    position:absolute ;
-    top:145%;
-    left:30%;
-    color: #FFB90F ;
-    font-size:20px;
-    width:40%;
-    color:white;
-}
-
-
-input{
+#home{
+position:absolute;
+bottom:1%;
+left:50%;
+width:20%;
+height:5%;
+left:40%;
+background:#f4511e;
 outline:none;
-background:none;
-color:green;
 border:none;
-font-size:10px;
+border-radius:5px;
+color:#fff;
+}
+  
+#loader{
+position:absolute;
+bottom:1%; 
 }
 
-.input_value{
-    position:absolute ;
-    top:12%;
-    right:-30%;
-    width:45%;
-    height:90%;
-    font-size:20px;
+#input{
+position:absolute;
+bottom:5%;
+left:7%;
+width:75%;
+
+}
+#add{
+position:absolute;
+bottom:5%;
+right:5%;
 }
 
-#file_input [type=file]{
-    !important 
-    position:absolute ;
-    top: 30%;
-    left: 5%;
-    width: 90%;
-    height:8%;
-    font-size: 40px;
-    background: black ;
-    display: none ;
+a{
+font-size:26px;
 }
 
+aside{
+position:absolute;
+top:12%;
+left:5%;
+width:90%;
+height:85%;
+background:orange;
+color:#fff;
+border-radius:5px;
+break-word:true;
 
-#power_input{
-    left:100px;
-    
 }
-#fast_input{
-    left:100px;
-    
-}
-
-#state_input{
-    left:100px;
-    
-}
-#mind_input{
-    left:100px;
-    
-}
-
-#charc_input{
-    left:100px;
-    
-}
-#wise_input{
-    left:100px;
-    
-}
-
-
-#skill{
-    position:absolute;
-    top:100%;
-    height:80%;
-    width:90%;
-    left:5%;
-    border-radius:10px;
-    outline:none;
-    display: none;
+aside::before {
+content: '';
+position: absolute;
+top:-3%;
+left: 7%;
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 45px 45px 45px;
+border-color: transparent transparent orange transparent;
+transform: translateX(-20%);
 
 }
 
-#pers{
-    position:absolute;
-    top:165%;
-    height:70%;
-    width:45%;
-    right:1%;
-    border-radius:10px;
+.day{
+position:absolute;
+left:10%;
+width:80%;
+text-align:center;
+background:#33691e;
+border-radius:5px;
+font-size:20px;
+}
+#sun{
+top:1%;
+display:none;
+}
+#mon{
+top:5%;
+}
+#tue{
+top:25%;
+}
+#wed{
+top:45%;
+}
+#thu{
+top:65%;
+}
+#fri{
+top:85%;
+}
+#sat{
+top:80%;
+display:none;
 }
 
-#lang{
-    position:absolute;
-    top:185%;
-    height:20%;
-    width:90%;
-    left:5%;
-    border-radius:10px;
-    outline:none;
-    display: none;
-}
-
-
-button{
-    position:absolute;
-    width:25px;
-    height:25px;
-    font-size: 19px;  
-    display:inline-block;
-     text-decoration:'Veranda';
-     outline:none;
-     border:none;
-     text-align:center;
-     cursor:pointer;
-
-     font-size:20px;
-
-     background-color:  #AEFAFF ;
-     box-shadow:0px 5px gray;
-     text-indent:1px;
-    border-radius:100%;   
-  }
-
-     button:hover{
-     background-color:none;
-     
-     
-     }
-
-     button:active{
-     background-color:none;
-     box-shadow:0px 1px gray;
-     transform:translateY(4px);
-     
-     }
-
-#save{
-    position: absolute ;
-    top:6%;
-    right:5%;
-    height:30px;
-    width:30px;
-    color:green;
-    border-radius:5px;
-    margin:0px;
-    padding:0px;
-    z-index: 9999;
-    background:none;
-    box-shadow:none;
-    
-} 
-
-
-#home{    
-    position:absolute ;
-    top:-12%;
-    left:39%;
-    height:100%;
-    width:22%;
-   border-radius:5px;
-    display:inline ;
-     
-}     
- 
-
-#open_charc{    
-    position:absolute ;
-    top:0%;
-    height:50px;
-    width:50px;
-    right:5%;
-   border-radius:5px;
-    display: inline;
-}     
-
-
-#open_note{    
-    position:absolute ;
-    top:0%;
-    height:50px;
-    width:50px;
-    left:22%;
-    border-radius:5px;
-    display: inline;
-}     
-
-#close_note{    
-    position:absolute ;
-    top:0%;
-    height:50px;
-    width:50px;
-    left:5%;
-   border-radius:5px;
-    display:none;
-}   
-
-#open_calc{    
-    position:absolute ;
-    top:0%;
-    height:50px;
-    width:50px;
-    left:5%;
-    border-radius:5px;
-    display: inline; 
+.less_area{
+position:absolute;
+top:22%;
+left:5%;
+width:86%;
+height:68%;
+display:none;
+overflow:auto;
 }
 
 
-     
-#book{    
-    position:absolute ;
-    top:0%;
-    height:50px;
-    width:50px;
-    right:22%;
-   border-radius:5px;
-    display: inline; 
+.lesson{
+margin:25px;
+width:90%;
+max-height:40%;
+min-height:8%;
+text-align:left;
+background:#33691e;
+color:#fff;
+border-radius:5px;
+font-size:20px;
+overflow:auto;
 }
 
-
-#book_close{    
-    position: absolute;
-    top:110%;    
-    left:45%;
-    color:red;
-    background:none;
-    border-radius:10px;
-    display:none ;
-    box-shadow: none ;
-    text-indent:-2px;
-    paddin:0px;
-    margin:0px;
+#edit{
+color: #3fb6b2;
 }
 
-
-
-.btn_power{
-   position:absolute; 
-   top:98%;
-   right:20%;
-}
-.btnM_power{
-    position:absolute;
-    top:98%;
-    left:20%;     
-}
-
-
-.btn_fast{
-    position:absolute;
-    top:108%;
-    right:20%;  
-}
-.btnM_fast{
-    position:absolute;
-    top:108%;
-    left:20%;  
-}
-
-
-.btn_charc{
-    position:absolute;
-    top:138%;
-    right:20%;  
-}
-.btnM_charc{
-    position:absolute;
-    top:138%;
-    left:20%;  
-}
-
-
-.btn_state{
-    position:absolute;
-    top:118%;
-    right:20%;  
-}
-.btnM_state{
-    position:absolute;
-    top:118%;
-    left:20%;  
-}
-
-
-.btn_mind{
-    position:absolute;
-    top:128%;
-    right:20%;  
-}
-.btnM_mind{
-    position:absolute;
-    top:128%;
-    left:20%;  
-}
-
-
-.btn_wise{
-    position:absolute ;
-    top:148%;
-    right:20%;
-}
-.btnM_wise{
-    position:absolute;
-    top:148%;
-    left:20%;  
-}
-
-
-@keyframes anim_show_res{
-    0%{ transform: scale(0) ;}  
-    100%{ transform: scale(1) ;}   
-    
-}
-
-@keyframes anim_hide_res{
-    0%{ transform: scale(1) ;}  
-    100%{ transform: scale(0) ;}   
-    
-}
-
-
-@keyframes anim_show{
-    0%{ transform: translateX(-100%) ;}  
-    100%{ transform: translateX(0%) ;}   
-    
-}
-
-@keyframes anim_show_d6{
-    0%{ transform: translateX(-200%) ;}  
-    100%{ transform: translateX(0%) ;}   
-    
-}
-
-
-@keyframes anim_show_y{
-    0%{ transform: translateY(-100%) ;}  
-    100%{ transform: translateY(0%) ;}   
-    
-}
-
-@keyframes anim_show_y_d8{
-    0%{ transform: translateY(100%) ;}  
-    100%{ transform: translateY(0%) ;}   
-    
-}  
-
-@keyframes anim_show_y_d10{
-    0%{ transform: translateY(280%) ;}  
-    100%{ transform: translateY(0%) ;}   
-    
-} 
-
-@keyframes anim_show_y_d12{
-    0%{ transform: translateY(400%) ;}  
-    100%{ transform: translateY(0%) ;}   
-    
-} 
-
-@keyframes anim_show_y_d20{
-    0%{ transform: translateY(500%) ;}  
-    100%{ transform: translateY(0%) ;}   
-    
-}     
-
-@keyframes anim_show_y_d100{
-    0%{ transform: translateY(650%) ;}  
-    100%{ transform: translateY(0%) ;}   
-    
-}     
-
-
-
-
-
-@keyframes anim_hide{
-    100%{ transform: translateX(-130%) ;}  
-    0%{ transform: translateX(0%) ;}   
-    
-}
-
-@keyframes anim_hide_d6{
-    100%{ transform: translateX(-259%) ;}  
-    0%{ transform: translateX(0%) ;}   
-    
-}
-
-
-@keyframes anim_hide_y{
-    100%{ transform: translateY(-100%) ;}  
-    0%{ transform: translateY(0%) ;}   
-    
-}
-
-@keyframes anim_hide_y_d8{
-    100%{ transform: translateY(140%) ;}  
-    0%{ transform: translateY(0%) ;}   
-    
-}  
-
-@keyframes anim_hide_y_d10{
-    100%{ transform: translateY(262%) ;}  
-    0%{ transform: translateY(0%) ;}   
-    
-} 
-
-@keyframes anim_hide_y_d12{
-    100%{ transform: translateY(391%) ;}  
-    0%{ transform: translateY(0%) ;}   
-    
-} 
-
-@keyframes anim_hide_y_d20{
-    100%{ transform: translateY(530%) ;}  
-    0%{ transform: translateY(0%) ;}   
-    
-}     
-
-@keyframes anim_hide_y_d100{
-    100%{ transform: translateY(660%) ;}  
-    0%{ transform: translateY(0%) ;}   
-    
-}     
-
-
-
-
-
-    
-</style>
- 
- 
-
-
+ @keyframes hide{
         
+        0%{ } 
+        95%{ transform: scale(0.01); translateY(-100%);}    
+        100%{transform:  scale(0);}
+        
+             
+        }
+
+ @keyframes show{
+        
+        0%{transform:scale(0); }
+        
+        100%{transform:scale(1); }
+             
+        }
+
+
+</style>    
+    
+    
 <script>
- 
-      
-function load(){
-document.getElementsByClassName("load")[0].style.display='none';
-}
-setInterval(load,1000);        
-       
+window.addEventListener("load", function(){
+
+let loader = document.getElementById("loader")
+
+setTimeout(function(){
+loader.style.display = "none"
+},1000)
+
+let home = document.getElementById("home")
+
+let sun = document.getElementById("sun");
+let mon = document.getElementById("mon");
+
+let tue = document.getElementById("tue");
+let wed = document.getElementById("wed");
+
+let thu = document.getElementById("thu");
+let fri = document.getElementById("fri");
+
+let sat = document.getElementById("sat");
+
+let mon_area = document.getElementById("mon_area")
+let tue_area = document.getElementById("tue_area")
+let wed_area = document.getElementById("wed_area")
+let thu_area = document.getElementById("thu_area")
+let fri_area = document.getElementById("fri_area")
 
 
-let cntrl_btn = document.getElementById("cntrl_btn") 
-let open_charc = document.getElementById("open_charc") 
-let close_charc = document.getElementById("home") 
-let open_note = document.getElementById("open_note") 
-let open_calc = document.getElementById("open_calc")
-tools = document.getElementById("tools")
-let casino =document.getElementById("casino") 
-let casino_close =document.getElementById("casino_close")
+home.addEventListener("click",function(){
+mon.style.top = "5%"
+tue.style.top = "25%"
 
-let img_pro = document.getElementById("img_pro") 
-let img_pro_input = document.getElementById("img_pro_input") 
+wed.style.top = "45%"
+thu.style.top = "65%"
+
+fri.style.top = "85%"
 
 
-let map =document.getElementById("map")
-let map_close =document.getElementById("map_close") 
-let map_img =document.getElementById("map_img")
-let cntrl_input = document.getElementById("cntrl_input") 
-let img = document.getElementById("img")
+mon.style.animation = "show 0.5s"
+tue.style.animation = "show 0.5s"
 
-let save = document.getElementById("save") 
+wed.style.animation = "show 0.5s"
+thu.style.animation = "show 0.5s"
 
-let skill = document.getElementById("skill") 
-let lang = document.getElementById("lang")
+fri.style.animation = "show 0.5s"
+sat.style.animation = "show 0.5s"
+sun.style.animation = "show 0.5s"
 
-let power_input = document.getElementById("power_input")     
-       
-let fast_input = document.getElementById("fast_input")
-           
-let state_input = document.getElementById("state_input")
+mon_area.style.animation = "hide 0.5s"
+tue_area.style.animation = "hide 0.5s"
+wed_area.style.animation = "hide 0.5s"
+thu_area.style.animation = "hide 0.5s"
+fri_area.style.animation = "hide 0.5s"
 
-let mind_input = document.getElementById("mind_input")           
+setTimeout(function(){
 
-let charc_input = document.getElementById("charc_input")
+mon.style.display = "inline"
+tue.style.display = "inline"
 
-let wise_input = document.getElementById("wise_input")           
+wed.style.display = "inline"
+thu.style.display = "inline"
 
+fri.style.display = "inline"
 
+mon_area.style.display = "none"
+tue_area.style.display = "none"
+wed_area.style.display = "none"
+thu_area.style.display = "none"
+fri_area.style.display = "none"
+    
 
-
-let d4 = document.getElementById("d4")     
-       
-let d6 = document.getElementById("d6")
-           
-let d8 = document.getElementById("d8")
-
-let d10 = document.getElementById("d10")           
-
-let d12 = document.getElementById("d12")
-
-let d20 = document.getElementById("d20")           
-
-let d100 = document.getElementById("d100")
-
-let res = document.getElementById("res") 
-let res_d10 = document.getElementById("res_d10") 
+// sat.style.display = "inline" 
+// sun.style.display = "inline" 
 
 
-let name_input = document.getElementById("name")     
-let file_input = document.getElementById("file_input")         
-
-
-
-
-let book = document.getElementById("book")
-let book_close = document.getElementById("book_close")
-let iframe = document.getElementById("iframe")
- 
-skill.value = localStorage.getItem("skill") 
-lang.value = localStorage.getItem('lang')
-
-power_input.value = localStorage.getItem('power_input');
-
-fast_input.value = localStorage.getItem('fast_input');
-
-mind_input.value = localStorage.getItem('mind_input'); 
-
-charc_input.value = localStorage.getItem('charc_input');
-
-state_input.value = localStorage.getItem('state_input');
-
-wise_input.value = localStorage.getItem('wise_input');
-
-name_input.value = localStorage.getItem('name_input');
-
-
-
-
-function info_update() {
-
-localStorage.setItem('skill', skill.value)
-localStorage.setItem('lang', lang.value)
-
-localStorage.setItem('power_input', power_input.value)
-
-localStorage.setItem('fast_input', fast_input.value)
-
-localStorage.setItem('mind_input', mind_input.value)
-
-localStorage.setItem('charc_input', charc_input.value)
-
-localStorage.setItem('state_input', state_input.value)
-
-localStorage.setItem('wise_input', wise_input.value)
-
-localStorage.setItem('name_input', name_input.value)
-
-localStorage.setItem('file_input', file_input.value)
-
-
-alert( file_input.value)
-alert( name_input.value)
-
-} 
-
-
-let x=document.querySelector('#file_input');
-
-x.addEventListener("change", function() {
-
-document.querySelector("img").src =window.URL.createObjectURL(x.files[0]);
-
-file_input.value = localStorage.getItem('file_input');   
-
-file_input.style.display = "inline" 
-let src = file_input.value
-document.getElementById("img").innerHTML= src ;
+},490)
 
 })
 
-img_pro.addEventListener("click",function(){
-alert("Знаходиться на стадії розробки") 
 
-document.getElementById("img_pro").innerHTML= src ;
+/*hide all except mon */
+mon.addEventListener("click", function(){
+
+mon_area.style.display = "inline"
+mon_area.style.animation = "show 0.5s"
+    
+sun.style.animation = "hide 0.5s"
+tue.style.animation = "hide 0.5s"
+
+wed.style.animation = "hide 0.5s"
+thu.style.animation = "hide 0.5s"
+
+fri.style.animation = "hide 0.5s"
+sat.style.animation = "hide 0.5s"
+
+setTimeout(function(){
+    sun.style.display = "none"
+    tue.style.display = "none"
+
+    wed.style.display = "none"
+    thu.style.display = "none"
+
+    fri.style.display = "none"
+    sat.style.display = "none"    
+    
+},500)
 
 })
 
 
 
+/*hide all except tue */
+tue.addEventListener("click", function(){
+tue.style.top = "5%"
+tue_area.style.animation = "show 0.5s"
 
+mon.style.animation = "hide 0.5s"
+sun.style.animation = "hide 0.5s"
 
-save.addEventListener("click",function(){
+wed.style.animation = "hide 0.5s"
+thu.style.animation = "hide 0.5s"
 
-info_update() 
+fri.style.animation = "hide 0.5s"
+sat.style.animation = "hide 0.5s"
 
-swal({
- text: "Збережено!", 
- icon: "success", 
-  button: false 
-});
+setTimeout(function(){
+tue_area.style.display = "inline"
 
-}) 
+    mon.style.display = "none"
+    sun.style.display = "none"
 
+    wed.style.display = "none"
+    thu.style.display = "none"
 
-open_calc.addEventListener("click",function(){
-
-tools.style.display = "inline" ;
-
-cntrl_btn.style.display = "none" ; 
-cntrl_input.style.display = "none" ; 
-img.style.display = "none" ;
-open_charc.style.display = "inline" ;
-close_charc.style.display = "inline" ;
-
-})
-
-
-casino.addEventListener("click",function(){
-
-res.style.display = "inline"
-res.style.animation = "anim_show_res 1s"
-
-casino.style.display = "none"
-casino_close.style.display = "inline"
-
-d4.style.animation = "anim_show 1s"
-d4.style.display = "inline"
-
-d6.style.animation = "anim_show_d6 1s"
-d6.style.display = "inline"
-
-d8.style.animation = "anim_show_y_d8 1s"
-d8.style.display = "inline"
-
-d10.style.animation = "anim_show_y_d10 1s"
-d10.style.display = "inline"
-
-d12.style.animation = "anim_show_y_d12 1s"
-d12.style.display = "inline"
-
-d20.style.animation = "anim_show_y_d20 1s"
-d20.style.display = "inline"
-
-d100.style.animation = "anim_show_y_d100 1s"
-d100.style.display = "inline"
-
-
-if (map_img.style.display = "inline") {
-map_img.style.display = "none" 
-map.style.display = "inline" 
-map_close.style.display = "none"
-}
-
-})
-
-casino_close.addEventListener("click",function(){
-
-casino.style.display = "inline"
-casino_close.style.display = "none"
-res.style.animation = "anim_hide_res 1s"
-res_d10.style.display = "none" 
-
-setTimeout( function whait(){
-d4.style.display = "none"
-d6.style.display = "none"
-d8.style.display = "none"
-d10.style.display = "none"
-d12.style.display = "none"
-d20.style.display = "none"
-d100.style.display = "none"
-res.style.display = "none" 
-
-}, 1000)
-
-d4.style.animation = "anim_hide 1s"
-
-d6.style.animation = "anim_hide_d6 1s"
-
-
-d8.style.animation = "anim_hide_y_d8 1s"
-
-
-d10.style.animation = "anim_hide_y_d10 1s"
-
-
-d12.style.animation = "anim_hide_y_d12 1s"
-
-
-d20.style.animation = "anim_hide_y_d20 1s"
-
-
-d100.style.animation = "anim_hide_y_d100 1s"
-
+    fri.style.display = "none"
+    sat.style.display = "none"    
+    
+},500)
 
 })
 
 
+/*hide all except wed */
+wed.addEventListener("click", function(){
+wed.style.top = "5%"
+wed_area.style.display = "inline"
+wed_area.style.animation = "show 0.5s"
 
+mon.style.animation = "hide 0.5s"
+tue.style.animation = "hide 0.5s"
 
+sun.style.animation = "hide 0.5s"
+thu.style.animation = "hide 0.5s"
 
-map.addEventListener("click",function(){
+fri.style.animation = "hide 0.5s"
+sat.style.animation = "hide 0.5s"
 
-map_img.style.display = "inline" 
-map.style.display = "none" 
-map_close.style.display = "inline" 
+setTimeout(function(){
+    mon.style.display = "none"
+    tue.style.display = "none"
 
+    sun.style.display = "none"
+    thu.style.display = "none"
 
-casino.style.display = "inline"
-casino_close.style.display = "none"
-res.style.display = "none"
-
-setTimeout( function whait(){
-d4.style.display = "none"
-d6.style.display = "none"
-d8.style.display = "none"
-d10.style.display = "none"
-d12.style.display = "none"
-d20.style.display = "none"
-d100.style.display = "none"
-}, 1000)
-
-d4.style.animation = "anim_hide 1s"
-
-d6.style.animation = "anim_hide_d6 1s"
-
-
-d8.style.animation = "anim_hide_y_d8 1s"
-
-
-d10.style.animation = "anim_hide_y_d10 1s"
-
-
-d12.style.animation = "anim_hide_y_d12 1s"
-
-
-d20.style.animation = "anim_hide_y_d20 1s"
-
-
-d100.style.animation = "anim_hide_y_d100 1s"
-
-
-
-})
-
-map_close.addEventListener("click",function(){
-map_img.style.display = "none" 
-map.style.display = "inline" 
-map_close.style.display = "none"
-
-if ( d4.style.display = "inline"){
-
-casino.style.display = "inline"
-casino_close.style.display = "none"
-
-d4.style.display = "none"
-d6.style.display = "none"
-d8.style.display = "none"
-d10.style.display = "none"
-d12.style.display = "none"
-d20.style.display = "none"
-d100.style.display = "none"
-
-}
-
- 
-})
-
-function randomInteger(min, max) {
-let rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-}
-
-
-d4.addEventListener("click",function(){
-
-document.getElementById("res").innerHTML="d4: "+ randomInteger(1, 4) ;   
-res_d10.style.display = "none"
+    fri.style.display = "none"
+    sat.style.display = "none"    
+    
+},500)
 
 })
 
 
-d6.addEventListener("click",function(){
+/*hide all except thu */
+thu.addEventListener("click", function(){
+thu.style.top = "5%"
+thu_area.style.display = "inline"
+thu_area.style.animation = "show 0.5s"
 
-document.getElementById("res").innerHTML="d6: "+ randomInteger(1, 6) ;   
-res_d10.style.display = "none"
+mon.style.animation = "hide 0.5s"
+tue.style.animation = "hide 0.5s"
+
+wed.style.animation = "hide 0.5s"
+sun.style.animation = "hide 0.5s"
+
+fri.style.animation = "hide 0.5s"
+sat.style.animation = "hide 0.5s"
+
+setTimeout(function(){
+    mon.style.display = "none"
+    tue.style.display = "none"
+
+    wed.style.display = "none"
+    sun.style.display = "none"
+
+    fri.style.display = "none"
+    sat.style.display = "none"    
+    
+},500)
 
 })
 
-d8.addEventListener("click",function(){
 
-document.getElementById("res").innerHTML="d8: "+ randomInteger(1, 8) ;   
-res_d10.style.display = "none"
+/*hide all except fri */
+fri.addEventListener("click", function(){
+fri.style.top = "5%"
+fri_area.style.display = "inline"
+fri_area.style.animation = "show 0.5s"
+
+mon.style.animation = "hide 0.5s"
+tue.style.animation = "hide 0.5s"
+
+wed.style.animation = "hide 0.5s"
+thu.style.animation = "hide 0.5s"
+
+sun.style.animation = "hide 0.5s"
+sat.style.animation = "hide 0.5s"
+
+setTimeout(function(){
+    mon.style.display = "none"
+    tue.style.display = "none"
+
+    wed.style.display = "none"
+    thu.style.display = "none"
+
+    sun.style.display = "none"
+    sat.style.display = "none"    
+    
+},500)
+
 })
 
-d10.addEventListener("click",function(){
 
-document.getElementById("res").innerHTML="d10: "+ randomInteger(1, 10) ;   
-res_d10.style.display = "none"
+/*hide all except sat */
+sat.addEventListener("click", function(){
+mon.style.animation = "hide 0.5s"
+tue.style.animation = "hide 0.5s"
+
+wed.style.animation = "hide 0.5s"
+thu.style.animation = "hide 0.5s"
+
+fri.style.animation = "hide 0.5s"
+sun.style.animation = "hide 0.5s"
+
+setTimeout(function(){
+    mon.style.display = "none"
+    tue.style.display = "none"
+
+    wed.style.display = "none"
+    thu.style.display = "none"
+
+    fri.style.display = "none"
+    sun.style.display = "none"    
+    
+},500)
+
 })
+/*hide all except sun */
+sun.addEventListener("click", function(){
+mon.style.animation = "hide 0.5s"
+tue.style.animation = "hide 0.5s"
 
-d12.addEventListener("click",function(){
+wed.style.animation = "hide 0.5s"
+thu.style.animation = "hide 0.5s"
 
-document.getElementById("res").innerHTML="d12: "+ randomInteger(1, 12) ;   
-res_d10.style.display = "none"
-})
+fri.style.animation = "hide 0.5s"
+sat.style.animation = "hide 0.5s"
 
-d20.addEventListener("click",function(){
+setTimeout(function(){
 
-document.getElementById("res").innerHTML="d20: "+ randomInteger(1, 20) ;    
-res_d10.style.display = "none"
-})
+    mon.style.display = "none"
+    tue.style.display = "none"
 
-d100.addEventListener("click",function(){
+    wed.style.display = "none"
+    thu.style.display = "none"
 
-document.getElementById("res").innerHTML="d10: "+ randomInteger(1, 9) ;   
-
-document.getElementById("res_d10").innerHTML="d10: "+ randomInteger(1, 9) ;  
-res_d10.style.display = "inline"
+    fri.style.display = "none"
+    sat.style.display = "none"    
+    
+},400)
 
 })
 
 
 
-
-
-open_charc.addEventListener("click",function(){
-
-cntrl_btn.style.display = "inline" ; 
-cntrl_input.style.display = "none" ; 
-img.style.display = "none" ;
-open_charc.style.display = "inline" ;
-close_charc.style.display = "inline" ;
-tools.style.display = "none" ;
-})
-
-open_note.addEventListener("click",function(){
-
-lang.style.display = "inline" ;
-skill.style.display = "inline" ;
-iframe.style.display = "none";
-book_close.style.display = "none" ;
-})
-
-close_charc.addEventListener("click",function(){
-tools.style.display = "none" ;
-
-cntrl_btn.style.display = "none" ; 
-cntrl_input.style.display = "inline" ; 
-img.style.display = "inline" ;
-open_charc.style.display = "inline" ;
-close_charc.style.display = "inline" ;
-
-iframe.style.display ="none"    
-book_close.style.display = "none"
-book.style.display = "inline"  
-skill.style.display = "none" ;
-lang.style.display = "none" ;
-
-cntrl_btn.style.display = "none" ; 
-cntrl_input.style.display = "inline" ; 
-img.style.display = "inline" ;
-open_charc.style.display = "inline" ;
-close_charc.style.display = "inline" ;
-
-})
-
-
-
-
-
-book.addEventListener("click",function(){
-  
-iframe.style.display ="inline"    
-book_close.style.display = "inline"
-book.style.display = "inline"  
-skill.style.display = "none" ;
-lang.style.display = "none" ;
-})
-
-
-
-
-book_close.addEventListener("click",function(){
-  
-iframe.style.display ="none"    
-book_close.style.display = "none"
-book.style.display = "inline"   
- 
-})
-
-
-
-
-function uppower() {
-document.getElementById("power_input").innerHTML="Сила: " + power_input.value;
-    
-    }  
-    
-function upfast() {
-    document.getElementById("fast_input").innerHTML="Спритність: " + fast_input.value ;
-    
-    }  
-  
-  
-  
-  
-  function upstate() {
-    document.getElementById("state_input").innerHTML="Статура: " + state_input.value  ;
-    
-    }  
-    
-function upmind() {
-    document.getElementById("mind_input").innerHTML="Інтелект:    " + mind_input.value ;
-    
-    }  
+})    
     
     
-   function upcharc() {
-    document.getElementById("charc_input").innerHTML="Харизма: " + charc_input.value  ;
-    
-    }  
-    
-function upwise() {
-    document.getElementById("wise_input").innerHTML="Мудрість: " + wise_input.value ;
-    
-    }    
-    
-  
-  
-                                                                
-    function power() {
-    power_input.value ++;
-    uppower();
-    }
-    function fast() {
-    fast_input.value ++;
-    upfast();
-    }
-    
-    function state() {
-    state_input.value ++;
-    upstate();
-    }
-    function mind() {
-    mind_input.value ++;
-    upmind();
-    }
-    
-     function charc() {
-    charc_input.value ++;
-    upcharc();
-    }
-    function wise() {
-    wise_input.value ++;
-    upwise();
-    }
+</script>
     
     
-    
-    
-        
-    
-   function power_min() {
-    power_input.value --;
-    uppower();
-    }
-    function fast_min() {
-    fast_input.value --;
-    upfast();
-    } 
-    
-    
-    function state_min() {
-    state_input.value --;
-    upstate();
-    }
-    function mind_min() {
-    mind_input.value --;
-    upmind();
-    } 
-    
-    function charc_min() {
-    charc_input.value --;
-    upcharc();
-    }
-    function wise_min() {
-    wise_input.value --;
-    upwise();
-    } 
-    
-
-
- </script>
-            
-         
-                  
     </body>
+    
 </html>
-
-
-                 
